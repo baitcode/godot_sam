@@ -327,7 +327,7 @@ bool SuperAnimDataFormatLoader::handles_type(const String& p_type) const
 String SuperAnimDataFormatLoader::get_resource_type(const String &p_path) const
 {
     print_line("SuperAnimDataFormatLoader::get_resource_type()");
-	String el = p_path.extension().to_lower();
+	String el = p_path.get_extension().to_lower();
     if(el == "sam"){
         return "SuperAnim";
     }

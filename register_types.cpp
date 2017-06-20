@@ -27,7 +27,7 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
 #include "register_types.h"
-#include "object_type_db.h"
+
 #include "SuperAnimNode.h"
 #include "SuperAnimResource.h"
 
@@ -36,8 +36,8 @@ SuperAnimDataFormatSaver *resource_saver_sam = NULL;
 
 void register_godot_sam_types() {
     MYPRINT("+Registring the SuperAnim\n");
-    ObjectTypeDB::register_type<SuperAnimNode>();
-    ObjectTypeDB::register_type<SuperAnimData>();
+    ClassDB::register_class<SuperAnimNode>();
+    ClassDB::register_class<SuperAnimData>();
 
     resource_loader_sam = memnew( SuperAnimDataFormatLoader );
 	ResourceLoader::add_resource_format_loader(resource_loader_sam);

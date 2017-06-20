@@ -7,7 +7,7 @@
 #include "SuperAnimSprite.h"
 
 class SuperAnimNode : public Node2D, public SuperAnim::SuperAnimHandler {
-    OBJ_TYPE(SuperAnimNode, Node2D);
+    void OBJ_TYPE(SuperAnimNode, Node2D);
 
     int count;
     Color myColor;
@@ -27,7 +27,6 @@ class SuperAnimNode : public Node2D, public SuperAnim::SuperAnimHandler {
     bool showAxis;
 
     Ref<SuperAnimData> mSamRes;
-    StringArray mSections;
 
     Vector<Point2> p_points;
     Vector<Point2> p_uvs;

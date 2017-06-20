@@ -111,15 +111,15 @@ float SuperAnimNode::get_animspeed(){
 
 void SuperAnimNode::_bind_methods() {
 
-    ObjectTypeDB::bind_method("get_height", &SuperAnimNode::get_height);
-    ObjectTypeDB::bind_method("get_width", &SuperAnimNode::get_width);
-    ObjectTypeDB::bind_method("load_anim", &SuperAnimNode::load_anim);
-    ObjectTypeDB::bind_method("play_section", &SuperAnimNode::PlaySection);
-    ObjectTypeDB::bind_method("pause", &SuperAnimNode::Pause);
-    ObjectTypeDB::bind_method("resume", &SuperAnimNode::Resume);
-    ObjectTypeDB::bind_method("has_section", &SuperAnimNode::HasSection);
-    ObjectTypeDB::bind_method("replace_sprite", &SuperAnimNode::replace_sprite);
-    ObjectTypeDB::bind_method("resume_sprite", &SuperAnimNode::resume_sprite);
+    ClassDB::bind_method("get_height", &SuperAnimNode::get_height);
+    ClassDB::bind_method("get_width", &SuperAnimNode::get_width);
+    ClassDB::bind_method("load_anim", &SuperAnimNode::load_anim);
+    ClassDB::bind_method("play_section", &SuperAnimNode::PlaySection);
+    ClassDB::bind_method("pause", &SuperAnimNode::Pause);
+    ClassDB::bind_method("resume", &SuperAnimNode::Resume);
+    ClassDB::bind_method("has_section", &SuperAnimNode::HasSection);
+    ClassDB::bind_method("replace_sprite", &SuperAnimNode::replace_sprite);
+    ClassDB::bind_method("resume_sprite", &SuperAnimNode::resume_sprite);
 
 
     ADD_SIGNAL(MethodInfo("AnimTimeEvent", PropertyInfo(Variant::STRING, "label"), PropertyInfo(Variant::INT, "mCurFrameNum"), PropertyInfo(Variant::REAL, "timeFactor")));
@@ -132,44 +132,44 @@ void SuperAnimNode::_bind_methods() {
      * in the ADD_PROPERTY call.
      */
 
-    ObjectTypeDB::bind_method("get_animspeed", &SuperAnimNode::get_animspeed);
-    ObjectTypeDB::bind_method("set_animspeed", &SuperAnimNode::set_animspeed);
-    ADD_PROPERTY( PropertyInfo( Variant::REAL, "anim speed"), _SCS("set_animspeed"),_SCS("get_animspeed"));
+    ClassDB::bind_method("get_animspeed", &SuperAnimNode::get_animspeed);
+    ClassDB::bind_method("set_animspeed", &SuperAnimNode::set_animspeed);
+    ADD_PROPERTY( PropertyInfo( Variant::REAL, "anim speed"), "set_animspeed", "get_animspeed");
 
-    ObjectTypeDB::bind_method("is_loop", &SuperAnimNode::is_loop);
-    ObjectTypeDB::bind_method("set_loop", &SuperAnimNode::set_loop);
-    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "Loop Anim"), _SCS("set_loop"),_SCS("is_loop"));
+    ClassDB::bind_method("is_loop", &SuperAnimNode::is_loop);
+    ClassDB::bind_method("set_loop", &SuperAnimNode::set_loop);
+    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "Loop Anim"), "set_loop", "is_loop");
 
-    ObjectTypeDB::bind_method("is_flipped_h", &SuperAnimNode::is_flipx);
-    ObjectTypeDB::bind_method("set_flip_h", &SuperAnimNode::set_flipx);
-    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "flip x"), _SCS("set_flip_h"),_SCS("is_flipped_h"));
+    ClassDB::bind_method("is_flipped_h", &SuperAnimNode::is_flipx);
+    ClassDB::bind_method("set_flip_h", &SuperAnimNode::set_flipx);
+    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "flip x"), "set_flip_h", "is_flipped_h");
 
-    ObjectTypeDB::bind_method("is_flipped_v", &SuperAnimNode::is_flipy);
-    ObjectTypeDB::bind_method("set_flip_v", &SuperAnimNode::set_flipy);
-    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "flip y"), _SCS("set_flip_v"),_SCS("is_flipped_v"));
+    ClassDB::bind_method("is_flipped_v", &SuperAnimNode::is_flipy);
+    ClassDB::bind_method("set_flip_v", &SuperAnimNode::set_flipy);
+    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "flip y"), "set_flip_v", "is_flipped_v");
 
     //add boolean which lets you show stage borders.
-    ObjectTypeDB::bind_method("set_showstage", &SuperAnimNode::set_showstage);
-    ObjectTypeDB::bind_method("is_showstage", &SuperAnimNode::is_showstage);
-    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "showstage"), _SCS("set_showstage"),_SCS("is_showstage"));
+    ClassDB::bind_method("set_showstage", &SuperAnimNode::set_showstage);
+    ClassDB::bind_method("is_showstage", &SuperAnimNode::is_showstage);
+    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "showstage"), "set_showstage", "is_showstage");
 
 
     //add boolean which lets you show axis.
-    ObjectTypeDB::bind_method("set_showaxis", &SuperAnimNode::set_showaxis);
-    ObjectTypeDB::bind_method("is_showaxis", &SuperAnimNode::is_showaxis);
-    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "showaxis"), _SCS("set_showaxis"),_SCS("is_showaxis"));
+    ClassDB::bind_method("set_showaxis", &SuperAnimNode::set_showaxis);
+    ClassDB::bind_method("is_showaxis", &SuperAnimNode::is_showaxis);
+    ADD_PROPERTY( PropertyInfo( Variant::BOOL, "showaxis"), "set_showaxis", "is_showaxis");
 
 
     //ui element for loading the sam file from editor.
-    ObjectTypeDB::bind_method("set_section", &SuperAnimNode::SetCurSectionName);
-    ObjectTypeDB::bind_method("get_section", &SuperAnimNode::GetCurSectionName);
-    ADD_PROPERTY( PropertyInfo( Variant::STRING, "CurSection"), _SCS("set_section"), _SCS("get_section"));
+    ClassDB::bind_method("set_section", &SuperAnimNode::SetCurSectionName);
+    ClassDB::bind_method("get_section", &SuperAnimNode::GetCurSectionName);
+    ADD_PROPERTY( PropertyInfo( Variant::STRING, "CurSection"), "set_section", "get_section");
 
     //ui element for loading the sam file from editor.
-    ObjectTypeDB::bind_method("set_sam", &SuperAnimNode::set_sam);
-    ObjectTypeDB::bind_method("get_sam", &SuperAnimNode::get_sam);
+    ClassDB::bind_method("set_sam", &SuperAnimNode::set_sam);
+    ClassDB::bind_method("get_sam", &SuperAnimNode::get_sam);
     //the strings provided here as property_hint are based on the strings we use in the ResourceLoader class.
-    ADD_PROPERTY( PropertyInfo( Variant::OBJECT, "SuperAnim", PROPERTY_HINT_RESOURCE_TYPE,"SuperAnim"), _SCS("set_sam"), _SCS("get_sam"));
+    ADD_PROPERTY( PropertyInfo( Variant::OBJECT, "SuperAnim", PROPERTY_HINT_RESOURCE_TYPE,"SuperAnim"), "set_sam", "get_sam");
 }
 
 SuperAnimNode::SuperAnimNode() {

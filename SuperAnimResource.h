@@ -19,7 +19,7 @@
  * add support for a different file format.
  */
 class SuperAnimData : public Resource, public SuperAnim::SuperAnimMainDef {
-    OBJ_TYPE(SuperAnimData, Resource);
+    void OBJ_TYPE(SuperAnimData, Resource);
 public:
 
     bool LoadSuperAnimMainDef(const String &theSuperAnimFile);

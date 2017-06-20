@@ -161,7 +161,7 @@ SuperAnimSprite::~SuperAnimSprite()
 void SuperAnimSprite::SetTexture(CCTexture2D *theTexture)
 {
     CCRect aRect;
-    aRect.pos = Vector2(0, 0);
+    aRect.position = Vector2(0, 0);
     aRect.size = theTexture->get_size();
     SetTexture(theTexture, aRect);
 }
@@ -185,10 +185,10 @@ void SuperAnimSprite::SetTexture(CCTexture2D *theTexture, CCRect theTextureRect)
     float aTextureHeight = (float)mTexture->get_height(); //mTexture->getPixelsHigh();
 
     float aLeft, aRight, aTop, aBottom;
-    aLeft = theTexturePixelRect.pos.x / aTextureWidth;
-    aRight = (theTexturePixelRect.pos.x + theTexturePixelRect.size.width) / aTextureWidth;
-    aTop = (theTexturePixelRect.pos.y + theTexturePixelRect.size.height) / aTextureHeight;
-    aBottom = theTexturePixelRect.pos.y / aTextureHeight;
+    aLeft = theTexturePixelRect.position.x / aTextureWidth;
+    aRight = (theTexturePixelRect.position.x + theTexturePixelRect.size.width) / aTextureWidth;
+    aTop = (theTexturePixelRect.position.y + theTexturePixelRect.size.height) / aTextureHeight;
+    aBottom = theTexturePixelRect.position.y / aTextureHeight;
 
     mQuad.tl.texCoords.u = aLeft;
     mQuad.tl.texCoords.v = aTop;
